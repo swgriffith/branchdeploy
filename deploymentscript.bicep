@@ -8,8 +8,8 @@ param sshKeyPath string
 
 var script = '''
 echo "Cloning the deployment repository"
-git clone https://github.com/swgriffith/azure-guides.git
-cd ./azure-guides/branch/scripts
+git clone https://github.com/swgriffith/branchdeploy.git
+cd branchdeploy/scripts
 
 ls
 
@@ -60,6 +60,10 @@ resource bashtest 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
       {
         name: 'SSH_KEY_PATH'
         value:sshKeyPath
+      }
+      {
+        name: 'USER_ASSIGNED_MI_ID'
+        value: userAssignedMIID
       }
     ] 
   }
