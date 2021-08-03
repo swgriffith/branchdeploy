@@ -5,6 +5,7 @@ param userAssignedMIID string
 param k3sToken string
 param adminUserName string
 param sshKeyPath string
+param forceUpdate string = utcNow()
 
 var script = '''
 echo "Cloning the deployment repository"
@@ -32,6 +33,7 @@ resource bashtest 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
    }
  }
   properties: {
+    forceUpdateTag: forceUpdate
     azCliVersion: '2.26.1' 
     retentionInterval: 'P1D'
     cleanupPreference: 'OnSuccess'
