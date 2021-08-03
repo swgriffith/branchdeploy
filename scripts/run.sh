@@ -22,6 +22,7 @@ echo "TENANT_ID: $TENANT_ID"
 echo "K3S_TOKEN: $K3S_TOKEN"
 echo "ADMIN_USER_NAME: $ADMIN_USER_NAME"
 echo "SSH_KEY_PATH: $SSH_KEY_PATH"
+echo "USER_ASSIGNED_MI_ID: $USER_ASSIGNED_MI_ID"
 echo "------------------------------------------------"
 }
 
@@ -78,7 +79,8 @@ az deployment group create \
   --parameters prefix=$PREFIX \
   --parameters k3sToken="$K3S_TOKEN" \
   --parameters adminUsername="$ADMIN_USER_NAME" \
-  --parameters adminPublicKey="$SSH_PUB_KEY" 
+  --parameters adminPublicKey="$SSH_PUB_KEY" \
+  --parameters userAssignedMIID="$USER_ASSIGNED_MI_ID"
 
 
 # Get the jump server public IP
