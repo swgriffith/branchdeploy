@@ -63,7 +63,7 @@ echo "Branch creation complete!"
 # Create Branch
 create_branch() {
     # Set the Subscriptoin
-az account set --subscription $SUBSCRIPTION_ID
+#az account set --subscription $SUBSCRIPTION_ID
 
 # Create the Resource Group to deploy the Webinar Environment
 az group create --name $RG_NAME --location $RG_LOCATION
