@@ -24,7 +24,7 @@ module managedIdentity 'managedidentity.bicep' = {
 
 resource contribroleassignment 'Microsoft.Authorization/roleAssignments@2020-04-01-preview' = {
   name: guid(contributorDefId, 'contributor')
-  scope: subscription()
+  //scope: subscription()
   properties: {
     principalType: 'ServicePrincipal'
     roleDefinitionId: subscriptionResourceId('Microsoft.Authorization/roleDefinitions', contributorDefId)
