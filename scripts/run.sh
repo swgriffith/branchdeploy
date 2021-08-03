@@ -2,6 +2,11 @@
 
 echo 'Starting branch delpoyment!!!'
 
+# Set the Subscription
+az login --identity
+az account set --subscription $SUBSCRIPTION_ID
+az account show -o yaml
+
 # Set Variables from var.sh
 if [[ $1 != 'bicep' ]]
 then
@@ -74,10 +79,6 @@ echo "ADMIN_USER_NAME: $ADMIN_USER_NAME"
 echo "SSH_KEY_PATH: $SSH_KEY_PATH"
 echo "USER_ASSIGNED_MI_ID: $USER_ASSIGNED_MI_ID"
 echo "------------------------------------------------"
-
-# Set the Subscriptoin
-az account set --subscription $SUBSCRIPTION_ID
-az account show -o yaml
 
 # # Create the Resource Group to deploy the Webinar Environment
 # az group create --name $RG_NAME --location $RG_LOCATION
